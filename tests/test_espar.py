@@ -18,3 +18,4 @@ class TestClass:
         assert espar(6) == True
         assert espar(10) == True
         assert espar(25) == False
+        assert espar(-1) == False
