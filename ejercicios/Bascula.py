@@ -48,7 +48,7 @@ class Bascula:
         if self.anotaciones!=0 :
             for p in self.pesos :
                 suma=suma+p;
-            return suma / self.anotaciones;
+            return round(suma / self.anotaciones,2);
         else :
             return 0;
 
@@ -57,14 +57,13 @@ class Bascula:
         tabla="<table><tr><th>FECHA</th>PESOS (kg.)<th></tr>";
         for fila in range(0,self.anotaciones,1) :
             tabla=tabla+"<tr><td>"+self.fechas[fila]+"</td><td>"+self.pesos[fila]+"</td></tr>";
-        
         tabla=tabla+"</table>";
         return tabla;
         
     # Calcula IMC a partir de la última medición
     def calcularIMC(self) -> float :
         if self.anotaciones>=1 :
-            return self.pesos[self.anotaciones-1]/pow(self.alturas[self.anotaciones-1],2);
+            return round(self.pesos[self.anotaciones-1]/pow(self.alturas[self.anotaciones-1],2),2);
         else :
             print('ERROR: No dispone de registros de altura y peso para calcular el IMC');
             return -1;
