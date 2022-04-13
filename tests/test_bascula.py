@@ -18,19 +18,25 @@ class TestClass:
         assert objetoPrueba.obtenerPesoMaximo() == 0;
         print("obtenerPesoMínimo() = 0");
         assert objetoPrueba.obtenerPesoMinimo() == 0;
-        print("obtenerTablaPesosHTML().isString()");
-        print(objetoPrueba.obtenerTablaPesosHTML())
+        s=objetoPrueba.obtenerTablaPesosHTML();
+        print(s);
         assert objetoPrueba.obtenerTablaPesosHTML().isprintable()==True;
+        assert s=="<table><tr><th>FECHA</th>PESOS (kg.)<th></tr></table>"
+
     # Test 2
     def test_bascula2(self):
         print("** Pruebas Unitarias: Báscula -- Test Case 2")
         objetoPrueba = Bascula();
         print("anotarPeso(70)");
-        objetoPrueba.anotarPeso(70);
+        objetoPrueba.anotarPeso(70,1,"14/4/2022");
         assert objetoPrueba.obtenerNumeroAnotaciones() == 1;
         assert objetoPrueba.obtenerPesoMaximo() == 70;
         assert objetoPrueba.obtenerPesoMinimo() == 70;
         assert objetoPrueba.obtenerPesoMedio() == 70;
+        s=objetoPrueba.obtenerTablaPesosHTML();
+        print(s);
+        assert objetoPrueba.obtenerTablaPesosHTML().isprintable()==True;
+        assert s=="<table><tr><th>FECHA</th>PESOS (kg.)<th></tr><tr><td>14/4/2022</td><td>70</td></tr></table>"
     # Test 3
     def test_bascula3(self):
         print("Pruebas Unitarias: Báscula -- Test Case 3")

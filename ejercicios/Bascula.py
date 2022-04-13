@@ -1,4 +1,4 @@
-from datetime import date;
+from datetime import datetime;
 # Clase Báscula
 class Bascula:
     # Constructor
@@ -15,7 +15,7 @@ class Bascula:
     
     
     # Anota una nueva pesada
-    def anotarPeso(self, peso,altura=1,fecha=date.today) :
+    def anotarPeso(self, peso,altura=1,fecha=str(datetime.now().day)+"/"+str(datetime.now().month)+"/"+str(datetime.now().year)) :
         self.pesos.append(peso);
         self.alturas.append(altura);
         self.fechas.append(fecha);
@@ -56,7 +56,7 @@ class Bascula:
     def obtenerTablaPesosHTML(self) -> str :
         tabla="<table><tr><th>FECHA</th>PESOS (kg.)<th></tr>";
         for fila in range(0,self.anotaciones,1) :
-            tabla=tabla+"<tr><td>"+self.fechas[fila]+"</td><td>"+self.pesos[fila]+"</td></tr>";
+            tabla=tabla+"<tr><td>"+self.fechas[fila]+"</td><td>"+str(self.pesos[fila])+"</td></tr>";
         tabla=tabla+"</table>";
         return tabla;
         
